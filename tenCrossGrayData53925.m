@@ -1,4 +1,4 @@
-% Generate ImgDatastore file with a ten-fold cross-validation data after graying and median filtering  
+% Generate ImgDatastore file with a ten-fold cross-validation data after graying and median filtering
 clear
 clc
 tic
