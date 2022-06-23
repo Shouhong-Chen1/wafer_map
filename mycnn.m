@@ -1,17 +1,17 @@
-clear
-clc
+clear 
+clc   
 
-%Generate tenCrossData53925.mat
+%Generate tenCrossData53925.mat    
 tenCrossData53925      %Generate  ImgDatastore file   time:About 511 seconds
 
 %Generate tenCrossGrayData.mat
 % tenCrossGrayData53925  %Generate the imgdatastore file corresponding to the wafer image after gray and median filtering time:About 628 seconds
 
 tic
-load('tenCrossData53925');
-load('tenCrossGrayData');
+load('tenCrossData53925');  
+load('tenCrossGrayData');    
 
-experimentData = 1;  %Use original wafer map as input of CNN
+experimentData = 1;  %Use original wafer map as input of CNN 
 % experimentData = 2;    %Use the wafer Use the wafer after graying and median filtering as the input of CNN
 
 imageSize = 64;
@@ -96,7 +96,7 @@ if experimentData == 1
     tenCrossGrayDataResult(i).TestPredictLabels = YTest;
     tenCrossGrayDataResult(i).TesttargerLabels = cellstr(valData.Labels);    
     
-    save('tenCrossGratDataResult.mat','tenCrossGrayDataResult');
+    save('tenCrossGrayDataResult.mat','tenCrossGrayDataResult');
     end
          
 %% Use the wafer Use the wafer after graying and median filtering as the input of CNN
