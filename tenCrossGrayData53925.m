@@ -7,33 +7,30 @@ load('tenCrossData53925.mat');
 %% Generate ImgDatastore file£¬Paths of ten training sets corresponding to the original graph
 for i = 1:10
     n = size((tenCrossData(i).trainData.Files),1);
-    trainDataName = split(tenCrossData(i).trainData.Files,'\');
+    trainDataName = tenCrossData(i).trainData.Files;
 
     for j = 1:n
-        trainDataName{j,3} =  strrep(trainDataName{j,3},'Nine_Type','per_0');
-        if strcmp(trainDataName{j,4},'Local') == 1
-            trainDataName{j,5} = strrep(trainDataName{j,5},'Loc','Local'); 
-        end
-        if strcmp(trainDataName{j,4},'Center') == 1
-            num = '(1) ';
-        elseif strcmp(trainDataName{j,4},'Donut') == 1
-            num = '(2) ';
-        elseif strcmp(trainDataName{j,4},'Edge-loc') == 1
-            num = '(3) ';
-        elseif strcmp(trainDataName{j,4},'Edge-ring') == 1
-            num = '(4) ';
-        elseif strcmp(trainDataName{j,4},'Local') == 1
-            num = '(5) ';
-        elseif strcmp(trainDataName{j,4},'Near-full') == 1
-            num = '(6) ';
-        elseif strcmp(trainDataName{j,4},'None') == 1
-            num = '(9) ';
-        elseif strcmp(trainDataName{j,4},'Random') == 1
-            num = '(7) ';
-        elseif strcmp(trainDataName{j,4},'Scratch') == 1
-            num = '(8) ';
+           trainDataName{j,1} =  strrep(trainDataName{j,1},'Nine_Type','per_0');
+        if ~isempty(findstr(trainDataName{j,1},'\Center\'))
+            trainDataName{j,1} = strrep(trainDataName{j,1},'\Center\Center_','\(1) Center_');
+          elseif ~isempty(findstr(trainDataName{j,1},'\Donut\'))
+            trainDataName{j,1} = strrep(trainDataName{j,1},'\Donut\Donut_','\(2) Donut_');
+          elseif  ~isempty(findstr(trainDataName{j,1},'\Edge-loc\'))
+            trainDataName{j,1} = strrep(trainDataName{j,1},'\Edge-loc\Edge-Loc_','\(3) Edge-Loc_');
+          elseif ~isempty(findstr(trainDataName{j,1},'\Edge-ring\'))
+            trainDataName{j,1} = strrep(trainDataName{j,1},'\Edge-ring\Edge-Ring_','\(4) Edge-Ring_');
+          elseif ~isempty(findstr(trainDataName{j,1},'\Local\'))
+            trainDataName{j,1} = strrep(trainDataName{j,1},'\Local\Loc_','\(5) Local_');
+          elseif ~isempty(findstr(trainDataName{j,1},'\Near-full\'))
+              trainDataName{j,1} = strrep(trainDataName{j,1},'\Near-full\Near-full_','\(6) Near-full_');
+          elseif ~isempty(findstr(trainDataName{j,1},'\None\'))
+              trainDataName{j,1} = strrep(trainDataName{j,1},'\None\None_','\(9) None_');
+          elseif ~isempty(findstr(trainDataName{j,1},'\Random\'))
+             trainDataName{j,1} = strrep(trainDataName{j,1},'\Random\Random_','\(7) Random_');
+          elseif ~isempty(findstr(trainDataName{j,1},'\Scratch\'))
+             trainDataName{j,1} = strrep(trainDataName{j,1},'\Scratch\Scratch_','\(8) Scratch_');
         end 
-        grayTrainDataPath{j,1} = [trainDataName{j,1},'\',trainDataName{j,2},'\',trainDataName{j,3},'\',num,trainDataName{j,5}];
+        grayTrainDataPath{j,1} = trainDataName{j,1};
     end
         trainGrayData.File = grayTrainDataPath; 
  
@@ -50,34 +47,30 @@ end
 %% Generate ImgDatastore file£¬Paths of ten test sets corresponding to the original graph
 for i = 1:10
     n = size((tenCrossData(i).valData.Files),1);
-    valDataName = split(tenCrossData(i).valData.Files,'\');
-
+    valDataName = tenCrossData(i).valData.Files;
     for j = 1:n
-        valDataName{j,3} =  strrep(valDataName{j,3},'Nine_Type','per_0');
-        if strcmp(valDataName{j,4},'Local') == 1
-            valDataName{j,5} = strrep(valDataName{j,5},'Loc','Local'); 
-        end
-        if strcmp(valDataName{j,4},'Center') == 1
-            num = '(1) ';
-        elseif strcmp(valDataName{j,4},'Donut') == 1
-            num = '(2) ';
-        elseif strcmp(valDataName{j,4},'Edge-loc') == 1
-            num = '(3) ';
-        elseif strcmp(valDataName{j,4},'Edge-ring') == 1
-            num = '(4) ';
-        elseif strcmp(valDataName{j,4},'Local') == 1
-            num = '(5) ';
-        elseif strcmp(valDataName{j,4},'Near-full') == 1
-            num = '(6) ';
-        elseif strcmp(valDataName{j,4},'None') == 1
-            num = '(9) ';
-        elseif strcmp(valDataName{j,4},'Random') == 1
-            num = '(7) ';
-        elseif strcmp(valDataName{j,4},'Scratch') == 1
-            num = '(8) ';
+           valDataName{j,1} =  strrep(valDataName{j,1},'Nine_Type','per_0');
+        if ~isempty(findstr(valDataName{j,1},'\Center\'))
+            valDataName{j,1} = strrep(valDataName{j,1},'\Center\Center_','\(1) Center_');
+          elseif ~isempty(findstr(valDataName{j,1},'\Donut\'))
+            valDataName{j,1} = strrep(valDataName{j,1},'\Donut\Donut_','\(2) Donut_');
+          elseif  ~isempty(findstr(valDataName{j,1},'\Edge-loc\'))
+            valDataName{j,1} = strrep(valDataName{j,1},'\Edge-loc\Edge-Loc_','\(3) Edge-Loc_');
+          elseif ~isempty(findstr(valDataName{j,1},'\Edge-ring\'))
+            valDataName{j,1} = strrep(valDataName{j,1},'\Edge-ring\Edge-Ring_','\(4) Edge-Ring_');
+          elseif ~isempty(findstr(valDataName{j,1},'\Local\'))
+            valDataName{j,1} = strrep(valDataName{j,1},'\Local\Loc_','\(5) Local_');
+          elseif ~isempty(findstr(valDataName{j,1},'\Near-full\'))
+              valDataName{j,1} = strrep(valDataName{j,1},'\Near-full\Near-full_','\(6) Near-full_');
+          elseif ~isempty(findstr(valDataName{j,1},'\None\'))
+              valDataName{j,1} = strrep(valDataName{j,1},'\None\None_','\(9) None_');
+          elseif ~isempty(findstr(valDataName{j,1},'\Random\'))
+             valDataName{j,1} = strrep(valDataName{j,1},'\Random\Random_','\(7) Random_');
+          elseif ~isempty(findstr(valDataName{j,1},'\Scratch\'))
+             valDataName{j,1} = strrep(valDataName{j,1},'\Scratch\Scratch_','\(8) Scratch_');
         end 
-        grayValDataPath{j,1} = [valDataName{j,1},'\',valDataName{j,2},'\',valDataName{j,3},'\',num,valDataName{j,5}];
-    end
+        grayValDataPath{j,1} = valDataName{j,1};
+    end 
         valGrayData.File = grayValDataPath; 
  
     valData = imageDatastore(valGrayData.File);
