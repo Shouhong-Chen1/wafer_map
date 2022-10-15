@@ -5,8 +5,6 @@ Wafer Map Failure Pattern Recognition
 
 
 
-
-
 --------------------------------------------------------------------------------------------------------------------
 Dateset：
 Nine_Type: A total of 53925 wafer map with nine defect pattern
@@ -24,3 +22,9 @@ experimentData = 2, Use the wafer Use the wafer after graying and median filteri
 (2)run MulSource.m
 
 use the method of decision-level information entropy fusion  to realize the final classification of the wafer map
+
+
+
+
+If possible, I hope you can definitely quote my paper where you can refer.
+Chen,S.H., Zhang Y.X., Hou,X.N, Shang Y.L, & Yang P(2022). Wafer map failure pattern recognition based on deep convolutional neural network. Expert Systems with Applications, 209, 118254-118263. https://doi.org/10.1016/j.eswa.2022.118254
